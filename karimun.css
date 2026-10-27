@@ -1,0 +1,330 @@
+/* Layout (grid, kolom, kartu, form) sudah ditangani Bootstrap.
+   File ini hanya untuk warna, hero, navbar, dan sentuhan desain. */
+
+/* ===== Variabel warna ===== */
+:root {
+  --laut: #1e88c7;
+  --laut-tua: #0f5f94;
+  --aqua: #7fd1e0;
+  --langit: #e8f6fb;
+  --pasir: #fbf6ec;
+  --krem: #f1e6d0;
+  --teks: #17384d;
+  --teks-lembut: #52707f;
+  --putih: #ffffff;
+  --radius: 16px;
+  --bayangan: 0 8px 24px rgba(15, 95, 148, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+body {
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    Arial,
+    sans-serif;
+  color: var(--teks);
+  background: var(--pasir);
+  line-height: 1.7;
+}
+.text-muted-laut {
+  color: var(--teks-lembut);
+}
+
+/* ===== Header & navigasi ===== */
+#header {
+  transition:
+    background 0.3s,
+    box-shadow 0.3s;
+}
+#header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 12px rgba(15, 95, 148, 0.12);
+}
+.navbar {
+  min-height: 68px;
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--putih) !important;
+  transition: color 0.3s;
+}
+#header.scrolled .logo {
+  color: var(--laut-tua) !important;
+}
+.navbar .nav-link {
+  padding: 0.4rem 1rem;
+  margin-left: 0.2rem;
+  border-radius: 999px;
+  color: var(--putih);
+  font-weight: 500;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+#header.scrolled .navbar .nav-link {
+  color: var(--teks);
+}
+.navbar .nav-link:hover {
+  background: rgba(127, 209, 224, 0.3);
+}
+.navbar .nav-link.active {
+  background: var(--laut);
+  color: var(--putih) !important;
+}
+#menu-btn {
+  border: 0;
+  color: var(--putih);
+  font-size: 1.8rem;
+  line-height: 1;
+  padding: 0 0.4rem;
+}
+#header.scrolled #menu-btn {
+  color: var(--laut-tua);
+}
+#menu-btn:focus {
+  box-shadow: 0 0 0 3px var(--aqua);
+}
+
+/* Desktop: saat di hero, menu aktif berupa pil putih */
+@media (min-width: 768px) {
+  #header:not(.scrolled) .navbar .nav-link.active {
+    background: var(--putih);
+    color: var(--laut-tua) !important;
+  }
+}
+/* Mobile: menu dropdown berlatar putih */
+@media (max-width: 767.98px) {
+  .navbar-collapse {
+    background: var(--putih);
+    border-radius: var(--radius);
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+    box-shadow: var(--bayangan);
+  }
+  .navbar .nav-link {
+    color: var(--teks);
+    margin-left: 0;
+  }
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh;
+
+  background:
+    linear-gradient(rgba(10, 70, 110, 0.55), rgba(10, 70, 110, 0) 25%),
+    linear-gradient(rgba(10, 70, 110, 0.35), rgba(10, 70, 110, 0.45)),
+    url("img/hero.png") center / cover no-repeat,
+    linear-gradient(180deg, var(--laut) 0%, var(--aqua) 70%, var(--krem) 100%);
+}
+.hero-content {
+  padding-top: 68px;
+}
+.hero h1 {
+  max-width: 16ch;
+  line-height: 1.15;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+}
+.hero .lead {
+  max-width: 52ch;
+}
+
+/* ===== Tombol ===== */
+.btn-laut {
+  background: var(--laut);
+  color: var(--putih);
+  border: 2px solid var(--laut);
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.btn-laut:hover,
+.btn-laut:focus {
+  background: var(--laut-tua);
+  border-color: var(--laut-tua);
+  color: var(--putih);
+  transform: translateY(-2px);
+}
+
+/* ===== Section ===== */
+.section {
+  padding: 5rem 0;
+}
+.section.alt {
+  background: var(--langit);
+}
+h2 {
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  color: var(--laut-tua);
+  margin-bottom: 0.8rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+/* ===== Statistik ===== */
+.stats {
+  display: grid;
+  gap: 0.9rem;
+}
+.stats li {
+  background: var(--putih);
+  border-radius: var(--radius);
+  padding: 1rem 1.4rem;
+  box-shadow: var(--bayangan);
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  border-left: 5px solid var(--aqua);
+}
+.stats strong {
+  font-size: 1.5rem;
+  color: var(--laut);
+}
+.stats span {
+  color: var(--teks-lembut);
+}
+
+/* ===== Kartu ===== */
+.card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--bayangan);
+  transition: transform 0.25s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+/* Area gambar*/
+.card-img {
+  background: linear-gradient(135deg, var(--aqua), var(--laut));
+  border-radius: 0;
+}
+.card-img img {
+  object-fit: cover;
+}
+.card-body {
+  padding: 1.2rem 1.3rem 1.5rem;
+}
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.card-text {
+  color: var(--teks-lembut);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.price {
+  color: var(--laut);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.4rem;
+}
+.price small {
+  font-weight: 400;
+  color: var(--teks-lembut);
+  font-size: 0.85rem;
+}
+.card.featured {
+  outline: 3px solid var(--aqua);
+}
+
+/* ===== Kalkulator ===== */
+.calc {
+  background: var(--krem);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+.calc-total {
+  font-size: 1.1rem;
+}
+.calc-total strong {
+  color: var(--laut-tua);
+  font-size: 1.4rem;
+}
+
+/* ===== Form ===== */
+.form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.form-control,
+.form-select {
+  border: 2px solid #cfe6ee;
+  border-radius: 10px;
+  color: var(--teks);
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 3px rgba(127, 209, 224, 0.5);
+}
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #d9534f;
+  background-image: none;
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--laut-tua);
+  color: #d8eef7;
+  text-align: center;
+  padding: 1.8rem 0;
+  font-size: 0.9rem;
+}
+
+/* ===== Tombol kembali ke atas ===== */
+#to-top {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--laut);
+  color: var(--putih);
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: var(--bayangan);
+  z-index: 1030;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition:
+    opacity 0.3s,
+    transform 0.3s,
+    visibility 0.3s,
+    background 0.2s;
+}
+#to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+#to-top:hover {
+  background: var(--laut-tua);
+}
+
+@media (max-width: 767.98px) {
+  .section {
+    padding: 3.5rem 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
