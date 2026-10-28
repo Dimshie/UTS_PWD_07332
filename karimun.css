@@ -328,3 +328,35 @@ footer {
     transition: none !important;
   }
 }
+
+
+#kontak {
+  background:
+    linear-gradient(rgba(10, 70, 110, 0.55), rgba(10, 70, 110, 0.55)),
+    url("img/gelami.jpg") center / cover no-repeat;
+}
+#kontak h2,
+#kontak .text-muted-laut {
+  color: var(--putih);
+}
+#form {
+  background: var(--putih);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+}
+
+/* Checkbox serasi dengan tema */
+.form-check-input:checked {
+  background-color: var(--laut);
+  border-color: var(--laut);
+}
+.form-check-input:focus {
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 3px rgba(127, 209, 224, 0.5);
+}
+
+/* Hover pada checkbox */
+.form-check:hover .form-check-label {
+  color: var(--laut);
+}
